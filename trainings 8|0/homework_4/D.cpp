@@ -18,11 +18,29 @@ int main(){
         cin >> a[i];
     }
 
+    int l = 0, r = n - 1;
+    int best_l = 0, best_r = 0;
+    ll min_diff = pow(10, 9);
+    int diff = a[l] - a[r];
     
-    // for (auto ai: a){
-    //     cout << ai;
-    // }
-
+    while (l < r) {
+        if (abs(min_diff) > abs(diff)) {
+            best_l = l;
+            best_r = r;
+            min_diff = diff;
+        }
+        if (diff > 0){
+            r -= 1;
+            diff -= a[r];
+        } else if (diff < 0) {
+            l += 1;
+            diff += a[l];
+        } else {
+            break;
+        }
+        
+    }
+    cout << abs(min_diff) << ' ' << best_l + 1 << ' ' << best_r + 1 << '\n';
 
     return 0;
 }
