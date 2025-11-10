@@ -1,15 +1,9 @@
-# 🧠 Yandex Trainings & ШАД Journey 🚀  
 
 <p align="center">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/e/e0/Yandex_logo_2021_red_with_ru_font.svg" alt="Yandex Logo" height="60"/>
+  <img src="assets/yandex_logo.svg" alt="Yandex Logo" height="115"/>
   &nbsp;&nbsp;&nbsp;&nbsp;
-  <img src="https://upload.wikimedia.org/wikipedia/commons/0/0a/School_of_Data_Analysis_logo.png" alt="ШАД Logo" height="60"/>
+  <img src="assets/shad_logo.png" alt="ШАД Logo" height="95"/>
 </p>
-
-[![Python](https://img.shields.io/badge/Python-3.x-blue?logo=python)](https://python.org)
-[![C++](https://img.shields.io/badge/C++-17-red?logo=c%2B%2B)](https://isocpp.org)
-[![Machine Learning](https://img.shields.io/badge/ML-Handbook-yellow?logo=tensorflow)](#)
-[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
 ---
 
