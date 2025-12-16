@@ -8,6 +8,7 @@ __pycache__/
 .vscode
 bits
 .DS_Store
+.venv
 
 # Distribution / packaging
 .Python
