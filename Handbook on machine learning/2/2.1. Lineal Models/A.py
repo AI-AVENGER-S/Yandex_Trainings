@@ -1,17 +1,36 @@
+from typing import Optional, List
+
 import numpy as np
+import pandas as pd
+from sklearn.base import TransformerMixin
+from sklearn.preprocessing import StandardScaler
 
-def root_mean_squared_logarithmic_error(y_true, y_pred, a_min=1.):
-    if np.any(y_true < 0):
-        raise ValueError("y_true содержит отрицательные значения!")
-    
-    y_pred_corrected = np.maximum(y_pred, a_min)
-    
 
-    rmsle = np.sqrt(
-        np.mean(
-            (np.log(y_true) - np.log(y_pred_corrected)) ** 2
-        )
-    )
-    
-    return rmsle
-    
+class BaseDataPreprocessor(TransformerMixin):
+    def __init__(self, needed_columns: Optional[List[str]] = None):
+        self.data = None
+        self.needed_columns = needed_columns
+        self.scaler = StandardScaler()
+
+    def fit(self, data: pd.DataFrame, *args):
+        """
+        Prepares the class for future transformations
+        :param data: pd.DataFrame with all available columns
+        :return: self
+        """
+        if self.needed_columns is not None:
+            data = pd.DataFrame(data, columns=self.needed_columns)
+
+        self.scaler.fit(data)
+        return self
+
+    def transform(self, data: pd.DataFrame) -> np.array:
+        """
+        Transforms features so that they can be fed into the regressors
+        :param data: pd.DataFrame with all available columns
+        :return: np.array with preprocessed features
+        """
+        if self.needed_columns is not None:
+            data = pd.DataFrame(data, columns=self.needed_columns)
+
+        return self.scaler.transform(data)
